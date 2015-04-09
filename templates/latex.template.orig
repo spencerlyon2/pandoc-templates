@@ -1,0 +1,154 @@
+\documentclass[11pt,article,oneside]{memoir}
+<<<<<<< HEAD
+\usepackage{org-preamble-pdflatex}
+% \input{vc}
+=======
+\usepackage[minion]{org-preamble-pdflatex}
+\input{vc}
+>>>>>>> 6e4fbeed57e3f2d68ea64b5bd5aa08f066926619
+
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=r,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(tables)$
+\usepackage{longtable}
+$endif$
+
+$if(graphics)$
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+$endif$
+
+$if(title)$
+<<<<<<< HEAD
+
+$if(subtitle)$
+\title{$title$}
+\newcommand{\subtitle}{\noindent $subtitle$}
+\renewcommand{\maketitlehookb}{\textsc{\subtitle}}
+$else$
+\title{$title$}
+$endif$
+
+$endif$
+
+=======
+\title{\bigskip \bigskip $title$}
+$endif$ 
+>>>>>>> 6e4fbeed57e3f2d68ea64b5bd5aa08f066926619
+
+%\author{$for(author)$$author$$sep$\\$endfor$}
+
+\author{$for(author)$\Large $author.name$\vspace{0.05in} \newline\normalsize\emph{$author.affiliation$} \newline\footnotesize \url{$author.email$}\vspace*{0.2in}\newline $sep$ \and $endfor$}
+
+%\author{$for(author)$$author.name$ ($author.affiliation$)$sep$ \and $endfor$}
+
+\date{}
+
+<<<<<<< HEAD
+\begin{document}
+\setkeys{Gin}{width=1\textwidth}
+%\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Minion Pro}
+%\setsansfont[Mapping=tex-text]{Minion Pro}
+%\setmonofont[Mapping=tex-text,Scale=0.8]{Pragmata}
+\chapterstyle{article-4}
+\pagestyle{kjh}
+
+\published{$date$}
+=======
+\begin{document}  
+\setkeys{Gin}{width=1\textwidth} 	
+%\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Minion Pro} 
+%\setsansfont[Mapping=tex-text]{Minion Pro} 
+%\setmonofont[Mapping=tex-text,Scale=0.8]{Pragmata}
+\chapterstyle{article-4} 
+\pagestyle{kjh}
+
+\published{$date$. Incomplete Draft. Please do not cite without permission.}
+>>>>>>> 6e4fbeed57e3f2d68ea64b5bd5aa08f066926619
+
+$if(title)$
+\maketitle
+$endif$
+
+<<<<<<< HEAD
+% \published{$date$. Incomplete Draft. Please do not cite without permission.}
+
+=======
+>>>>>>> 6e4fbeed57e3f2d68ea64b5bd5aa08f066926619
+$if(toc)$
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+
+$if(abstract)$
+
+\begin{abstract}
+
+\noindent $abstract$
+
+\end{abstract}
+
+$endif$
+
+$body$
+
+$if(natbib)$
+$if(biblio-files)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{Bibliography}
+$else$
+\renewcommand\refname{References}
+$endif$
+$endif$
+
+\bibliography{$biblio-files$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=References]$endif$
+
+$endif$
+<<<<<<< HEAD
+
+$if(bibliography)$
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+\vspace*{-0.2in}
+\noindent
+$endif$
+
+=======
+>>>>>>> 6e4fbeed57e3f2d68ea64b5bd5aa08f066926619
+$for(include-after)$
+$include-after$
+
+$endfor$
+<<<<<<< HEAD
+\end{document}
+=======
+\end{document}
+>>>>>>> 6e4fbeed57e3f2d68ea64b5bd5aa08f066926619
