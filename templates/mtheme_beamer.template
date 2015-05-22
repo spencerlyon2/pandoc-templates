@@ -1,0 +1,120 @@
+% -*- program: xelatex -*-
+% \documentclass[10pt, compress, handout]{beamer}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(handout)$handout,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+$if(theme)$
+\usetheme[$for(themeoption)$$themeoption$$sep$,$endfor$]{$theme$}
+$endif$
+$if(colortheme)$
+\usecolortheme{$colortheme$}
+$endif$
+$if(fonttheme)$
+\usefonttheme{$fonttheme$}
+$endif$
+
+
+\usepackage{longtable,booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+\usepackage{caption}
+\usepackage{hyperref} % Used to add links to websites to the pdf
+\definecolor{mLightBrown}{HTML}{EB811B}
+\definecolor{TolColor1}{HTML}{332288}   % dark purple
+\definecolor{TolColor2}{HTML}{6699CC}   % dark blue
+\definecolor{TolColor4}{HTML}{44AA99}   % light green
+\definecolor{TolColor8}{HTML}{661100}   % dark red
+\hypersetup{colorlinks,linkcolor=TolColor8,urlcolor=mLightBrown,citecolor=black}  % From Rick
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+$endif$
+$if(biblatex)$
+\usepackage[backend=biber,style=authoryear-comp]{biblatex}
+$if(bibliography)$
+\addbibresource{$bibliography$}
+$endif$
+$if(biblio-files)$
+\bibliography{$biblio-files$}
+$endif$
+$endif$
+
+
+\usepgfplotslibrary{dateplot}
+\usemintedstyle{trac}
+
+\newcommand{\TODO}[1]{ {\color{magenta} TODO: #1} }
+% fraction with parenthesis around it
+\newcommand{\pfrac}[2]{\ensuremath{ \left( \frac{#1}{#2} \right)}}
+\newcommand{\var}[0]{ \text{Var} }
+\newcommand{\cov}[0]{ \text{Cov} }
+
+$if(url)$
+\usepackage{url}
+$endif$
+
+$if(title)$
+\title$if(shorttitle)$[$shorttitle$]$endif${$title$}
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+
+$if(date)$
+\date{$date$}
+$else$
+\date{\today}
+$endif$
+
+\begin{document}
+
+$if(title)$
+\begin{frame}[fragile]
+  \titlepage
+\end{frame}
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+\begin{frame} \frametitle{Outline}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+$endif$
+$body$
+
+$if(natbib)$
+$if(biblio-files)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliography{$biblio-files$}
+\end{frame}
+
+$endif$
+$endif$
+$if(biblatex)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\printbibliography[heading=none]
+\end{frame}
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

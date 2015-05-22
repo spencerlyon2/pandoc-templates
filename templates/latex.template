@@ -2,6 +2,8 @@
 \usepackage{org-preamble-pdflatex}
 % \input{vc}
 
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
 $if(listings)$
 \usepackage{listings}
 $endif$
